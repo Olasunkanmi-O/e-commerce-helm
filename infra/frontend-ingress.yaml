@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: frontend-ingress
+  namespace: default
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    # Optional: enable rewrite if needed
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+    - host: www.alasoasiko.co.uk
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: frontend-external
+                port:
+                  number: 80
+
