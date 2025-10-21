@@ -4,10 +4,13 @@ metadata:
   name: frontend-ingress
   namespace: default
   annotations:
-    kubernetes.io/ingress.class: "nginx"
-    # Optional: enable rewrite if needed
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - www.alasoasiko.co.uk
+      secretName: frontend-tls
   rules:
     - host: www.alasoasiko.co.uk
       http:
