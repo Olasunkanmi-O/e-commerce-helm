@@ -1,15 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "adservice.fullname" . }}
-  labels:
-    {{- include "adservice.labels" . | nindent 4 }}
+  name: adservice
 spec:
-  type: {{ .Values.service.type }}
-  ports:
-    - port: {{ .Values.service.port }}
-      targetPort: http
-      protocol: TCP
-      name: http
+  type: ClusterIP
   selector:
-    {{- include "adservice.selectorLabels" . | nindent 4 }}
+    app: adservice
+  ports:
+  - name: grpc
+    port: 9555
+    targetPort: 9555
