@@ -1,7 +1,7 @@
 auth:
   strategy: login        # Kiali login, can also use anonymous or token
   username: admin        # default username
-  passphrase: admin      # default password (change in production)
+  passphrase: strongpassword      # default password (change in production)
 
 deployment:
   replicas: 1
