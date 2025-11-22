@@ -61,7 +61,8 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/a
     
     helm install kiali-server kiali/kiali-server \
       --namespace istio-system \
-      --set auth.strategy="anonymous"
+      --create-namespace \
+      -f kiali-values.yaml
     ```
     - jaeger
     ```bash
