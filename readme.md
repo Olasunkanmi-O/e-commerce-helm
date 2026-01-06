@@ -34,6 +34,8 @@ https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml
 ```
+to get dashboard token `kubectl -n kubernetes-dashboard create token admin-user`
+
 5. Install monitoring stack
     - prometheus
     ```bash
@@ -64,6 +66,8 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/a
       --create-namespace \
       -f kiali-values.yaml
     ```
+    to get kiali token use ` kubectl -n istio-system create token kiali`
+
     - jaeger
     ```bash
     kubectl create namespace observability
